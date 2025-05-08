@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 export const HistoryComponent = () => {
   const { ref: containerRef, inView } = useInView({
-    threshold: 0.3,
+    threshold: 0.1,
     triggerOnce: true, 
   });
 
