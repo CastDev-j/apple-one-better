@@ -78,9 +78,7 @@ export const PresentationComponent = () => {
     >
       <div className="flex flex-col items-center justify-center text-center gap-4 mt-8 max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold mb-12">
-          Hecho por{" "}
-          <span className="block md:inline-block">Andrés Castillo</span>{" "}
-          <span className="block md:inline-block">& Sugey Ejemplo</span>
+          Proyecto final arquitectura de computadoras
         </h1>
       </div>
     </section>

@@ -5,7 +5,7 @@ import gsap from "gsap";
 export const HistoryComponent = () => {
   const { ref: containerRef, inView } = useInView({
     threshold: 0.1,
-    triggerOnce: true, 
+    triggerOnce: true,
   });
 
   const animationRef = useRef<HTMLDivElement>(null);
@@ -36,7 +36,7 @@ export const HistoryComponent = () => {
   return (
     <div
       ref={(el) => {
-        containerRef(el); 
+        containerRef(el);
         animationRef.current = el;
       }}
       className="min-h-screen bg-gray-100 text-gray-800 p-6 sm:p-12 flex flex-col items-center"
@@ -159,6 +159,54 @@ export const HistoryComponent = () => {
             </span>
             .
           </p>
+        </div>
+      </div>
+
+      {/* Card 5: Recursos y enlaces */}
+      <div className="card gap-6 mb-8 max-w-4xl w-full">
+        <div className="bg-white p-6 sm:p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300 order-2 md:order-1">
+          <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-gray-900">
+            Recursos y enlaces
+          </h3>
+          <ul className="space-y-4 text-gray-600">
+            <li>
+              <strong className="text-gray-900">Emulador de Apple I</strong>:{" "}
+              Apple1JS – Apple 1 Emulator
+            </li>
+            <li>
+              <strong className="text-gray-900">Manual de Apple I</strong>:{" "}
+              <a
+                href="http://apple1.chez.com/Apple1project/Docs/pdf/AppleI_Manual.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Ver PDF
+              </a>
+            </li>
+            <li>
+              <strong className="text-gray-900">Diseño del Apple I</strong>:{" "}
+              <a
+                href="https://www.rrauction.com/auctions/lot-detail/343672105986001-apple-1-computer-with-original-box-signed-by-steve-wozniak/#mz-expanded-view-765102684652"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                Ver subasta
+              </a>
+            </li>
+            <li>
+              <strong className="text-gray-900">Sitio adicional</strong>:{" "}
+              <a
+                href="https://stid.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                stid.me
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
