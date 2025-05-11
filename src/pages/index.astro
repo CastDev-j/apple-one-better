@@ -1,14 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { HeroComponent } from "@/components/Hero";
-import { PresentationComponent } from "@/components/PresentationComponent";
-import { HistoryComponent } from "@/components/HistoryComponent";
-import { VideoComponent } from "@/components/VideoComponent";
+import Footer from "@/components/Footer.astro";
+import Hero from "@/components/Hero.astro";
+import Presentation from "@/components/Presentation.astro";
+import History from "@/components/History.astro";
+import Video from "@/components/Video.astro";
 ---
 
 <Layout>
-  <HeroComponent client:load />
-  <PresentationComponent client:visible />
-  <HistoryComponent client:visible />
-  <VideoComponent client:load />
+  <Hero />
+  <Presentation />
+  <History />
+  <Video />
+  <Footer />
 </Layout>

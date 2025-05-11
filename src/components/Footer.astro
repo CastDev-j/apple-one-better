@@ -1,0 +1,65 @@
+---
+
+---
+
+<footer
+  id="footer-section"
+  class="bg-neutral-100 text-neutral-900 border-t border-neutral-200"
+>
+  <div class="mx-auto w-full max-w-screen-xl px-4 py-12">
+    <div
+      class="flex flex-col items-center md:items-start md:grid md:grid-cols-3 gap-8 text-center md:text-left"
+    >
+      {/* Columna Autores */}
+      <div>
+        <h3 class="mb-4 text-lg font-semibold uppercase">Autores</h3>
+        <ul class="space-y-2 text-sm">
+          <li>Juan Pablo Romero Mata</li>
+          <li>Sugey Gutiérrez Calero</li>
+        </ul>
+      </div>
+
+      {/* Columna Institución */}
+      <div class="flex flex-col items-center md:items-start">
+        <h3 class="mb-4 text-lg font-semibold uppercase">Institución</h3>
+        <p class="text-sm">Instituto Tecnológico de México en Celaya</p>
+        <img
+          src="/images/logo-itc.webp"
+          alt="Logo ITC"
+          class="h-10 mt-4 object-contain hover:scale-105 transition-transform"
+        />
+      </div>
+
+      {/* Columna Materia */}
+      <div>
+        <h3 class="mb-4 text-lg font-semibold uppercase">Materia</h3>
+        <ul class="space-y-2 text-sm">
+          <li>Arquitectura de computadoras</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center text-sm">
+      © {new Date().getFullYear()} Instituto Tecnológico de México en Celaya
+    </div>
+  </div>
+</footer>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animación simple de fade-in para todo el footer
+  gsap.from("#footer-section", {
+    scrollTrigger: {
+      trigger: "#footer-section",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+    opacity: 0,
+    duration: 0.8,
+    ease: "power2.out",
+  });
+</script>

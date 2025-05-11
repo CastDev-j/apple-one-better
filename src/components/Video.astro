@@ -1,0 +1,171 @@
+---
+// src/components/VideoComponent.astro
+import { FaMicrochip, FaApple } from "react-icons/fa";
+import { MdOutlineIntegrationInstructions } from "react-icons/md";
+import { TbDeviceDesktopAnalytics } from "react-icons/tb";
+---
+
+<div
+  id="video-component"
+  class="min-h-screen bg-neutral-100 text-neutral-800 p-6 sm:p-12 flex flex-col items-center"
+>
+  <div class="max-w-4xl w-full">
+    <h1
+      id="video-title"
+      class="text-3xl sm:text-4xl font-semibold mb-8 text-center text-neutral-900"
+    >
+      Especificaciones Técnicas del Apple I
+    </h1>
+
+    {/* Video Section */}
+    <div
+      class="video-container relative aspect-video bg-neutral-200 rounded-xl overflow-hidden border border-neutral-300 hover:border-neutral-400 transition-all duration-300 mb-8"
+    >
+      <video
+        id="tech-video"
+        class="absolute inset-0 w-full h-full object-cover hidden rounded-xl"
+        src="https://res.cloudinary.com/dyhudqjn6/video/upload/v1746598937/tsg6yrnksy4z50p0de1b.mp4"
+        controls></video>
+
+      <div
+        id="video-overlay"
+        class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-neutral-200/80 to-neutral-100/70 cursor-pointer"
+      >
+        <div class="text-center p-6 max-w-2xl">
+          <div
+            class="w-20 h-20 rounded-full bg-neutral-300 flex items-center justify-center hover:bg-neutral-400 transition-all duration-300 mx-auto mb-4"
+          >
+            <TbDeviceDesktopAnalytics className="h-10 w-10 text-neutral-600" />
+          </div>
+          <h3 class="text-xl font-medium text-neutral-700 mb-2">
+            Ver demostración técnica
+          </h3>
+          <p class="text-neutral-500">
+            Un vistazo al funcionamiento interno del Apple I
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Features Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Hardware */}
+      <div
+        id="card6"
+        class="feature-card bg-white p-6 rounded-xl border border-neutral-300 hover:border-neutral-400 transition-all duration-300 shadow-sm"
+      >
+        <div class="flex items-center mb-4">
+          <FaMicrochip className="h-6 w-6 mr-3 text-neutral-600" />
+          <h3 class="text-lg font-semibold text-neutral-900">Hardware</h3>
+        </div>
+        <ul class="text-neutral-600 space-y-2">
+          <li>Procesador MOS 6502 a 1MHz</li>
+          <li>4KB de memoria RAM (ampliable a 8KB)</li>
+          <li>62 chips en placa base</li>
+        </ul>
+      </div>
+
+      {/* Software */}
+      <div
+        id="card7"
+        class="feature-card bg-white p-6 rounded-xl border border-neutral-300 hover:border-neutral-400 transition-all duration-300 shadow-sm"
+      >
+        <div class="flex items-center mb-4">
+          <FaApple className="h-6 w-6 mr-3 text-neutral-600" />
+          <h3 class="text-lg font-semibold text-neutral-900">Software</h3>
+        </div>
+        <ul class="text-neutral-600 space-y-2">
+          <li>Intérprete BASIC en cassette</li>
+          <li>Monitor de 24 líneas x 40 columnas</li>
+          <li>Entrada/salida por teclado ASCII</li>
+        </ul>
+      </div>
+
+      {/* Innovación */}
+      <div
+        id="card8"
+        class="feature-card bg-white p-6 rounded-xl border border-neutral-300 hover:border-neutral-400 transition-all duration-300 shadow-sm"
+      >
+        <div class="flex items-center mb-4">
+          <MdOutlineIntegrationInstructions
+            className="h-6 w-6 mr-3 text-neutral-600"
+          />
+          <h3 class="text-lg font-semibold text-neutral-900">Innovación</h3>
+        </div>
+        <ul class="text-neutral-600 space-y-2">
+          <li>Primer computador con conexión integrada</li>
+          <li>Diseño completamente ensamblado</li>
+          <li>Precio accesible para la época ($666.66)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+
+  // Registrar plugins de GSAP
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Función para manejar el video
+  const handlePlayVideo = () => {
+    const overlay = document.getElementById("video-overlay") as HTMLDivElement;
+    const video = document.getElementById("tech-video") as HTMLVideoElement;
+
+    if (overlay) overlay.style.display = "none";
+    if (video) {
+      video.classList.remove("hidden");
+      video.play();
+    }
+  };
+
+  const overlay = document.getElementById("video-overlay");
+  if (overlay) {
+    overlay.addEventListener("click", handlePlayVideo);
+  }
+
+  const tl = gsap.timeline();
+
+  tl.from("#video-title", {
+    scrollTrigger: {
+      trigger: "#video-title",
+      start: "top 90%",
+      end: "bottom 80%",
+      scrub: 3,
+      once: true,
+    },
+    opacity: 0,
+    duration: 0.3,
+    ease: "power2.out",
+  });
+
+  tl.from(".video-container", {
+    scrollTrigger: {
+      trigger: ".video-container",
+      start: "top 95%",
+      end: "50% 80%",
+      once: true,
+    },
+    opacity: 0,
+    y: 20,
+    ease: "power2.out",
+  });
+
+  const cards = ["#card6", "#card7", "#card8"];
+
+  cards.forEach((cardId) => {
+    tl.from(cardId, {
+      scrollTrigger: {
+        trigger: cardId,
+        start: "top 90%",
+        end: "60% 80%",
+        once: true,
+      },
+      opacity: 0,
+      y: 20,
+      ease: "power2.out",
+    });
+  });
+</script>

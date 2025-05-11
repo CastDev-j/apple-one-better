@@ -1,0 +1,44 @@
+---
+
+---
+
+<section
+  id="presentation-section"
+  class="min-h-screen flex flex-col items-center justify-center text-center p-4"
+>
+  <div
+    class="flex flex-col items-center justify-center text-center gap-4 mt-8 max-w-2xl mx-auto"
+  >
+    <h1 class="text-4xl font-bold mb-12">
+      Proyecto final arquitectura de computadoras
+    </h1>
+  </div>
+</section>
+
+<style>
+  #presentation-section {
+    color: #171717;
+    background-color: #fafafa;
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/all";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline();
+
+  tl.to("#presentation-section", {
+    scrollTrigger: {
+      trigger: "#presentation-section",
+      start: "top 80%", 
+      end: "20% 70%",
+      scrub: 3,
+      once: true,
+    },
+    backgroundColor: "#171717",
+    color: "#fafafa",
+  });
+</script>
