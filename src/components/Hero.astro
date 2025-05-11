@@ -30,6 +30,32 @@ import { GoArrowDown } from "react-icons/go";
   </div>
 </section>
 
+<style>
+
+  #hero-section {
+    opacity: 0;
+  }
+
+  #hero-title {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  h2 {
+    opacity: 0;
+  }
+
+  #hero-helper {
+    opacity: 0;
+  }
+
+  .arrow-down {
+    opacity: 0.5;
+    transform: translateY(20px);
+  }
+
+</style>
+
 <script>
   import gsap from "gsap";
   import { ScrollTrigger } from "gsap/all";
@@ -38,29 +64,29 @@ import { GoArrowDown } from "react-icons/go";
 
   const tl = gsap.timeline();
 
-  tl.from("#hero-section", {
-    opacity: 0,
+  tl.to("#hero-section", {
+    opacity: 1,
     duration: 0.3,
     ease: "power2.out",
   })
-    .from("#hero-title", {
-      y: 50,
-      opacity: 0,
+    .to("#hero-title", {
+      y: 0,
+      opacity: 1,
       duration: 0.6,
     })
-    .from("h2", {
-      opacity: 0,
+    .to("h2", {
+      opacity: 1,
       duration: 0.6,
       ease: "power2.inOut",
     })
-    .from("#hero-helper", {
-      opacity: 0,
+    .to("#hero-helper", {
+      opacity: 1,
       duration: 0.3,
       ease: "power2.out",
     })
-    .from(".arrow-down", {
-      y: 20,
-      opacity: 0.5,
+    .to(".arrow-down", {
+      y: 0,
+      opacity: 1,
       duration: 1,
       repeat: -1,
       yoyo: true,
